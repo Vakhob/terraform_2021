@@ -1,0 +1,21 @@
+/*
+provider "aws" {
+    region = "us-east-1"
+    shared_credentials_file = "/home/ec2-user/.aws/credentials"
+    profile = "default"
+}
+
+variable "condition" {}
+
+resource "aws_instance" "myec1" {
+    ami = "ami-048f6ed62451373d9"
+    instance_type = "t2.micro"
+    count = var.condition == true ? 3 : 0
+}
+
+resource "aws_instance" "myec2" {
+    ami = "ami-048f6ed62451373d9"
+    instance_type = "t2.micro"
+    count = var.condition == false ? 2 : 0
+}
+*/
