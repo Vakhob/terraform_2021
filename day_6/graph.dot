@@ -1,0 +1,22 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] aws_eip.firsteip (expand)" [label = "aws_eip.firsteip", shape = "box"]
+		"[root] aws_instance.myec2 (expand)" [label = "aws_instance.myec2", shape = "box"]
+		"[root] aws_security_group.cloud-test (expand)" [label = "aws_security_group.cloud-test", shape = "box"]
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" [label = "provider[\"registry.terraform.io/hashicorp/aws\"]", shape = "diamond"]
+		"[root] aws_eip.firsteip (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_instance.myec2 (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_security_group.cloud-test (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] aws_eip.firsteip (expand)"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] aws_instance.myec2 (expand)"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] aws_security_group.cloud-test (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_eip.firsteip (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_instance.myec2 (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_security_group.cloud-test (expand)"
+		"[root] root" -> "[root] meta.count-boundary (EachMode fixup)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)"
+	}
+}
+
